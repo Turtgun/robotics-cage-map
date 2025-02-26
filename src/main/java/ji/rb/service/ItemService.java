@@ -14,29 +14,9 @@ import java.util.List;
 public class ItemService {
     private List<Item> items = new ArrayList<>();
 
-    @PostConstruct
-    public void init() {
 
-     items.add(new Item("VEX Wrench (11/4)", "Red Tool Drawer, 1st", "images/wrench.jpeg", new double[]{0.8, 0.9}));
-         items.add(new Item("Saw: Metal cutting", "Red Tool Drawer, 2nd", "images/saw.jpeg", new double[]{18, 0}));
-         items.add(new Item("File", "Red Tool Drawer, 3rd", "images/files.jpeg", new double[]{4, 0}));
-         items.add(new Item("Mallet", "Red Tool Drawer, 3rd", "images/mallets.jpeg", new double[]{6, 0}));
-         items.add(new Item("Hammer", "Red Tool Drawer, 3rd", "images/hammers.jpeg", new double[]{6, 0}));
-         items.add(new Item("Zip-tie gun", "Red Tool Drawer, 3rd", "images/zip tie gun.jpeg", new double[]{11, 0}));
-         items.add(new Item("Plier", "Red Tool Drawer, 4th", "images/pliers.jpeg", new double[]{5, 0}));
-         items.add(new Item("Cutting Plier", "Red Tool Drawer, 4th", "images/cutting pliers.jpeg", new double[]{13, 0}));
-         items.add(new Item("Twist Plier", "Red Tool Drawer, 4th", "images/twist plier.jpeg", new double[]{11, 0}));
-         items.add(new Item("Saw: Wood cutting", "Red Tool Drawer, 5th", "images/wood saw.jpeg", new double[]{17, 0}));
-         items.add(new Item("Clamp", "Red Tool Drawer, 6th", "images/clamps.jpeg", new double[]{5, 0}));
-         items.add(new Item("Vise Clamp", "Red Tool Drawer, 6th", "images/vise clamp.jpeg", new double[]{10, 0}));
-         items.add(new Item("Crimping Tool", "Red Tool Drawer, 7th", "images/crimping tool.jpeg", new double[]{13, 0}));
-         items.add(new Item("VEX Plate", "Red Tool Drawer, 7th", "images/VEX plates.jpeg", new double[]{13, 0}));
-         items.add(new Item("White Lithium Grease", "Red Tool Drawer, Right Cabinet", "images/grease.jpeg", new double[]{13, 0}));
-         items.add(new Item("WD-40", "Red Tool Drawer, Right Cabinet", "images/wd40.jpeg", new double[]{13, 0}));
-         items.add(new Item("Tape Measure", "Red Tool Drawer, Right Cabinet", "images/tape measures.jpeg", new double[]{13, 0}));
-         items.add(new Item("Drill bits: Extra", "Red Tool Drawer, Right Cabinet", "images/extra drill bits.jpeg", new double[]{13, 0}));
-
-         // Add more items as needed...
+    public void setItems(List<Item> items) {
+         this.items = items;
     }
 
     public List<Item> searchItems(String query) {
@@ -158,8 +138,8 @@ public class ItemService {
           }
           
           // Normalize the feature score to [0,1] range
-          // Assuming typical feature scores fall between -1000 and 1000
-          return (score + 1000) / 2000;
+          // Assuming typical feature scores fall between -100 and 100
+          return (score + 100) / 200;
      }
      
      private int min(int a, int b, int c) {
